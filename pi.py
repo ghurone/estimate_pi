@@ -1,17 +1,17 @@
 import random
 
 
-def pi(n):  # n = Número de pontos
-    n_circulo = 0
-    r = 1  # deixei o raio constante, mas só alterar para o raio de sua escolha
+def pi(n):  # n = Number of points
+    n_circle = 0   
+    r = 1  # radius value
 
     for i in range(n):
-        x = random.uniform(0, r)  # valor do ponto no eixo x
-        y = random.uniform(0, r)  # valor do ponto no eixo y
+        x = random.uniform(0, r)  # point value on the x axis
+        y = random.uniform(0, r)  # point value on the y axis
 
         square_distance = x ** 2 + y ** 2
 
-        if square_distance <= r**2:  # testando se o ponto está dentro da circuferência
-            n_circulo += 1
+        if square_distance <= r**2:  # testing the points
+            n_circle += 1
 
-    return 4 * n_circulo / n
+    return 4 * n_circle / n
