@@ -2,7 +2,6 @@ import random
 
 
 def pi(n):  # n = Número de pontos
-    n_total = 0
     n_circulo = 0
     r = 1  # deixei o raio constante, mas só alterar para o raio de sua escolha
 
@@ -15,6 +14,4 @@ def pi(n):  # n = Número de pontos
         if square_distance <= r**2:  # testando se o ponto está dentro da circuferência
             n_circulo += 1
 
-        n_total += 1
-
-    return 4 * n_circulo / n_total
+    return 4 * n_circulo / n
