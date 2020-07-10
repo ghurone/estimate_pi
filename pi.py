@@ -1,10 +1,13 @@
-from random import uniform
+from random import uniform, choice
 import matplotlib.pyplot as plt
 
 
 def colors(n):  # n = Number of points
     r = 1
     d = {}
+
+    color_list = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'magenta']
+    dist = [r*k/len(color_list) if k != 0 else 0 for k in range(len(color_list), -1, -1)]
 
     for i in range(n):
         x = uniform(-r, r)  # point value on the x axis
@@ -13,9 +16,12 @@ def colors(n):  # n = Number of points
         square_distance = x ** 2 + y ** 2
 
         if square_distance <= r ** 2:  # testing the points
-            d[(x, y)] = 'red'
+            for j in range(len(dist)):
+                if dist[j] >= square_distance >= dist[j + 1]:
+                    d[(x, y)] = color_list[j]
+                    break
         else:
-            d[(x, y)] = 'blue'
+            d[(x, y)] = 'silver'
 
     return d
 
@@ -50,4 +56,4 @@ def plot_circle(p):
     plt.show()
 
 
-plot_circle(colors(1000))
+plot_circle(colors(100000))
