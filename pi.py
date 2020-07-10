@@ -1,4 +1,4 @@
-from random import uniform, choice
+from random import uniform
 import matplotlib.pyplot as plt
 
 
@@ -6,7 +6,7 @@ def colors(n):  # n = Number of points
     r = 1
     d = {}
 
-    color_list = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'magenta']
+    color_list = ['#E14E65', '#F98D52', '#EBE051', '#6DBB5B', '#5286DA', '#714EB3']
     dist = [r*k/len(color_list) if k != 0 else 0 for k in range(len(color_list), -1, -1)]
 
     for i in range(n):
@@ -30,15 +30,17 @@ def pi(dic):
     n_circle = 0
 
     for i, v in enumerate(dic):
-        if dic[v] == 'red':
+        if dic[v] != 'silver':
             n_circle += 1
 
     return 4 * n_circle / len(dic.values())
 
 
-def plot_circle(p):
-    fig = plt.figure()
+def plot_points(p):
+    fig = plt.figure(figsize=(6.4, 6.4))
     ax = fig.gca()
+    ax.add_artist(plt.Circle((0, 0), radius=1, lw=0.5, fill=False))
+    ax.add_artist(plt.Rectangle((-1, -1), 2, 2, lw=0.5, fill=False))
     ax.scatter(*zip(*p.keys()), c=p.values(), s=0.5)
     ax.spines['top'].set_color('none')
     ax.spines['bottom'].set_position('zero')
@@ -56,4 +58,16 @@ def plot_circle(p):
     plt.show()
 
 
-plot_circle(colors(100000))
+def plot_hist(k):
+    pi_list = [pi(colors(i)) for i in range(1, k)]
+    med = sum(pi_list) / len(pi_list)
+
+    plt.hist(pi_list, bins=100, color='#00ffcc')
+    plt.axvline(med, color='k', ls='dashed', lw=0.7)
+    min_ylim, max_ylim = plt.ylim()
+    plt.text(med * 1.02, max_ylim * 0.9, f'Média: {med:.5f}', size=9)
+    plt.show()
+
+
+s = 1000
+plot_hist(s)
