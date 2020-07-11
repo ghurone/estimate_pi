@@ -34,3 +34,18 @@ def pi(dic):
             n_circle += 1
 
     return 4 * n_circle / len(dic.values())
+
+
+def desv_pad(lista):
+    """Calcula o desvio padrão"""
+    tam = len(lista)
+    media = sum(lista) / tam
+    soma = 0
+
+    for d in lista:
+        soma += (d - media) ** 2
+
+    desv = (soma / (tam - 1)) ** 0.5
+
+    return desv
+

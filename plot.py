@@ -27,8 +27,6 @@ def plot(di, p, n, li):
     ax1.set_yticks([-1, -0.75, -0.5, -0.25, 0.25, 0.5, 0.75, 1])
     ax1.yaxis.set_label_coords(0.477, 0.98)
     ax1.tick_params(labelsize=10)
-    # add pi text
-    ax1.text(0.05, 1.02, f'Pi estimado para esse círculo: {pi(di)}', size=11)
 
     # histogram for the right plot
     ax2 = ax[1]
