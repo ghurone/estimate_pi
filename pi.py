@@ -58,16 +58,12 @@ def plot_points(p):
     plt.show()
 
 
-def plot_hist(k):
-    pi_list = [pi(colors(i)) for i in range(1, k)]
-    med = sum(pi_list) / len(pi_list)
+def plot_hist(list_pi):
+    med = sum(list_pi) / len(list_pi)
 
-    plt.hist(pi_list, bins=100, color='#00ffcc')
+    plt.hist(list_pi, bins=100, color='#00ffcc')
     plt.axvline(med, color='k', ls='dashed', lw=0.7)
-    min_ylim, max_ylim = plt.ylim()
-    plt.text(med * 1.02, max_ylim * 0.9, f'Média: {med:.5f}', size=9)
+    # min_ylim, max_ylim = plt.ylim()
+    # plt.text(med * 1.02, max_ylim * 0.9, f'Média: {med:.5f}', size=4)
     plt.show()
 
-
-s = 1000
-plot_hist(s)
