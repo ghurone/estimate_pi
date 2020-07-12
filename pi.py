@@ -29,13 +29,14 @@ def cores(p):  # p = número de pontos
 
 
 def pi(dic):
-    n_circle = 0
+    """Calcula uma aproximação do número Pi, utilizando o método de Monte Carlo"""
+    n_circulo = 0
 
     for i, v in enumerate(dic):
         if dic[v] != 'silver':
-            n_circle += 1
+            n_circulo += 1
 
-    return 4 * n_circle / len(dic.values())
+    return 4 * n_circulo / len(dic.values())
 
 
 def desv_pad(lista, media):

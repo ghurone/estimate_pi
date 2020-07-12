@@ -3,7 +3,7 @@ from plot import plot
 
 
 if __name__ == '__main__':
-    p = 10000  # número de pontos
+    p = 100000  # número de pontos
 
     n = int(input('Quantas estimativas de pi serão feitas? '))
     lista_pi = [pi(cores(p)) for i in range(n)]  # lista com n valores de pi
