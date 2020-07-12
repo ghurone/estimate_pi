@@ -3,9 +3,9 @@ from plot import plot
 
 
 if __name__ == '__main__':
-    p = 100000  # number of points
+    p = 10000  # número de pontos
 
     n = int(input('Quantas vezes? '))
-    pi_list = [pi(colors(p)) for i in range(n)]  # list with n values of pi
+    pi_list = [pi(cores(p)) for i in range(n)]  # lista com n valores de pi
 
-    plot(colors(p), p, n, pi_list)
+    plot(cores(p), p, n, pi_list)
