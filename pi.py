@@ -2,6 +2,8 @@ from random import uniform
 
 
 def cores(p):  # p = número de pontos
+    """Retorna um dicionário com as coordenadas (x,y) de cada ponto e sua respectiva cor, que depende da distância ao
+    centro"""
     r = 1  # raio
     d = {}
 
@@ -12,12 +14,12 @@ def cores(p):  # p = número de pontos
         x = uniform(-r, r)  # coordenada x
         y = uniform(-r, r)  # coordenada y
 
-        square_distance = x ** 2 + y ** 2
-        sqrt_distance = square_distance ** 0.5
+        dist_quadr = x ** 2 + y ** 2
+        raiz_dist = dist_quadr ** 0.5
 
-        if square_distance <= r ** 2:  # testa os pontos
+        if dist_quadr <= r ** 2:  # testa os pontos
             for j in range(len(dist)):
-                if dist[j] >= sqrt_distance >= dist[j + 1]:
+                if dist[j] >= raiz_dist >= dist[j + 1]:
                     d[(x, y)] = lista_cores[j]
                     break
         else:
@@ -37,13 +39,13 @@ def pi(dic):
 
 
 def desv_pad(lista, media):
-    """Calcula o desvio padrão"""
+    """Calcula o desvio padrão de um conjunto de dados, dada a média"""
     tam = len(lista)
     soma = 0
 
     for d in lista:
         soma += (d - media) ** 2
 
-    desv = (soma / (tam - 1)) ** 0.5
+    desv = (soma / tam) ** 0.5
 
     return desv
